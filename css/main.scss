@@ -268,12 +268,23 @@ tbody tr:nth-child(odd) th {
   height: 5.5em;
 
   &-title {
-    font-weight: 300;
-    color: #B388FF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0 0 1em;
+    a {
+      font-weight: 300;
+      color: #B388FF;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 0 1em;
+      transition: all .2s ease;
+      font-family: 'Changa', "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 300;
+    }
+    a:hover,
+    a:focus {
+      color: #fafafa;
+      text-decoration: none;
+      
+    }
   }
 
   .masthead-nav {
