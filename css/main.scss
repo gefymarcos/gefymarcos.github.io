@@ -231,7 +231,6 @@ pre code {
 img {
   display: block;
   max-width: 100%;
-  margin: 0 0 1rem;
   border-radius: 5px;
 }
 
@@ -271,10 +270,17 @@ tbody tr:nth-child(odd) th {
   &-title {
     font-weight: 300;
     color: #B388FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 1em;
   }
 
   .masthead-nav {
-    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
 
     a {
       color: #fafafa;
@@ -292,24 +298,28 @@ tbody tr:nth-child(odd) th {
         margin-left: .25rem;
       }      
     }
+  
+  }
 
+  .masthead-right-nav {
     .right-menu {
       padding: 0 1em 0 0;
+      display: flex;
+      flex-direction: row;
 
       .socials {
-        display: inline-block;
+        display: flex;
       }
         
       .socials a {
           width: 2.5rem;
           height: 2.5rem;
-          display: inline-block;
+          display: flex;
           text-indent: -9999px;
           background-repeat: no-repeat;
       }      
     }
   }
-
 }
 
 .container {
