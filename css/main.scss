@@ -306,7 +306,7 @@ tbody tr:nth-child(odd) th {
       }
 
       + a {
-        margin-left: .25rem;
+        margin-left: 1rem;
       }      
     }
   
@@ -333,8 +333,37 @@ tbody tr:nth-child(odd) th {
   }
 }
 
+.image-box {
+    display: flex;
+    position: relative;
+    z-index: -999;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+
+  .image-header {
+    padding: 4.5em 0 0 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  figcaption {
+    position: absolute;
+    top: 50vh;
+    right: 20vw;
+    font-size: 1.5rem;
+    color: #fafafa;
+    text-shadow: 0px 0px 5px #fafafa;
+  }
+}
+
 .container {
-  padding: 8em;
+  padding: 2em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  max-width: 60vw;
 }
 
 .page {
@@ -360,9 +389,11 @@ tbody tr:nth-child(odd) th {
 
     a {
       color: #333;
+      transition: all .2s ease;
 
       &:hover,
       &:focus {
+        color: #B388FF;
         text-decoration: none;
       }
     }
