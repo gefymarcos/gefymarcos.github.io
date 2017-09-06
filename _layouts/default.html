@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %}</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Changa:300,300i,600">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body>
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title">{{ site.title }}</h1>
+        <nav class="masthead-nav">
+          {% for page in site.pages %}
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          {% endfor %}
+        </nav>
+        <nav class="masthead-nav">
+          <ul class="right-menu">
+            <li class="socials">
+              <a class="socials-github" href="http://www.github.com/gefymarcos" target="_blank">
+                <img src="img/github.svg" alt="Logo do github" />
+              </a>
+            </li>
+            <li class="socials">
+              <a class="socials-twitter" href="http://www.twitter.com/gefymarcos" target="_blank">
+                <img src="img/twitter.svg" alt="Logo do twitter" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="container">
+        {{ content }}
+      </div>
+    </div>
+  </body>
+
