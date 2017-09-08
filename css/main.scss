@@ -277,7 +277,6 @@ tbody tr:nth-child(odd) th {
       padding: 0 0 0 1em;
       transition: all .2s ease;
       font-family: 'Changa', "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 300;
     }
     a:hover,
     a:focus {
@@ -341,6 +340,9 @@ tbody tr:nth-child(odd) th {
     -webkit-margin-after: 0;
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: -1em 0 1em -20vw;
 
   .image-header {
     padding: 4.5em 0 0 0;
@@ -364,6 +366,16 @@ tbody tr:nth-child(odd) th {
   flex-direction: column;
   margin-left: 20vw;
   max-width: 60vw;
+
+  .container-title {
+    color: #cccccc;
+    font-weight: 300;
+    transition: all .2s ease;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #eeeeee;
+    margin-bottom: 1em;
+  }
 }
 
 .page {

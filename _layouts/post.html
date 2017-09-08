@@ -7,8 +7,8 @@ comments: true
 <article class="content post">
   <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-date">
-    <time>{{ page.date | data_to_string }}</time>
-    <span class="reading-time">{{ minutesText }}</span>
+    <time>{{ page.date | date_to_string }}</time>
+    <span class="reading-time"> - reading time: {{ minutesText }}</span>
   </div>
 
   {{ content }}

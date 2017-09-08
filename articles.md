@@ -1,9 +1,12 @@
 ---
-layout: default
+layout: page
+title: Articles
+permalink: /articles/
 ---
+
 <figure class="image-box">
-  <img class="image-header" src="/img/home.jpg" alt="Imagem de um programador trabalhando em seu computador.">
-  <figcaption>Compartilhar conhecimento é a melhor forma de aprender</figcaption>
+  <img class="image-header" src="/img/articles.jpg" alt="Imagem de um bloco de notas, uma caneta, um computador e um café.">
+  <figcaption>Escrevo para aprender.</figcaption>
 </figure>
 
 {% if site.posts.size == 0 %}
@@ -12,7 +15,6 @@ layout: default
 
 {% for post in site.posts %}
 <div class="content list">
-  <h2 class="container-title">Recent Articles</h2>
   <div class="list-item">
     <h2 class="list-post-title">
       <a href="{{ post.url }}">{{ post.title }}</a>
@@ -24,3 +26,4 @@ layout: default
 </div>
 {% endfor %}
 {% endif %}
+

@@ -16,28 +16,26 @@
         </h1>
         <nav class="masthead-nav">
           {% for page in site.pages %}
-            <a href="{{ page.url }}">{{ page.title }}</a>
+            {% if page.title contains "" %}
+              <a href="{{ page.url }}">{{ page.title }}</a>
+            {% endif %}
           {% endfor %}
         </nav>
         <nav class="masthead-right-nav">
           <ul class="right-menu">
             <li class="socials">
               <a class="socials-github" href="http://www.github.com/gefymarcos" target="_blank">
-                <img src="img/github.svg" alt="Logo do github" />
+                <img src="/img/github.svg" alt="Logo do github" />
               </a>
             </li>
             <li class="socials">
               <a class="socials-twitter" href="http://www.twitter.com/gefymarcos" target="_blank">
-                <img src="img/twitter.svg" alt="Logo do twitter" />
+                <img src="/img/twitter.svg" alt="Logo do twitter" />
               </a>
             </li>
           </ul>
         </nav>
       </header>
-      <figure class="image-box">
-        <img class="image-header" src="img/prog.jpg" alt="Smiley face">
-        <figcaption>Compartilhar conhecimento é a melhor forma de aprender</figcaption>
-      </figure>
       <div class="container">
         {{ content }}
       </div>
