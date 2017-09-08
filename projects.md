@@ -12,7 +12,7 @@ permalink: /projects/
 <div class="content list">
   <div class="list-item">
     <h2 class="list-post-title">
-      <a href="http://www.gefymarcos.github.io">My Page</a>
+      <a href="http://gefymarcos.github.io">My Page</a>
     </h2>
     <div class="list-post-date">
       <time>09/2017</time>
@@ -23,7 +23,7 @@ permalink: /projects/
 <div class="content list">
   <div class="list-item">
     <h2 class="list-post-title">
-      <a href="http://www.goldendogaules.com.br">Golden do Gaulês</a>
+      <a href="http://www.goldensdogaules.com.br">Golden do Gaulês</a>
     </h2>
     <div class="list-post-date">
       <time>06/2017</time>
