@@ -265,7 +265,11 @@ tbody tr:nth-child(odd) th {
   justify-content: space-between;
   position: fixed;
   width: 100%;
-  height: 5.5em;
+  height: 6.5em;
+
+  @media (min-width: 450px) {
+    height: 5.5em;
+  }
 
   &-title {
     a {
@@ -292,6 +296,16 @@ tbody tr:nth-child(odd) th {
     display: flex;
     flex-direction: row;
 
+    padding: 4em 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 25vw;
+
+    @media (min-width: 450px) {
+      padding: unset;
+      position: unset;
+    }
+
     a {
       color: #fafafa;
       font-weight: 300;
@@ -303,12 +317,11 @@ tbody tr:nth-child(odd) th {
         color: #B388FF;
         text-decoration: none;
       }
-
+      
       + a {
         margin-left: 1rem;
       }      
-    }
-  
+    }    
   }
 
   .masthead-right-nav {
@@ -316,18 +329,18 @@ tbody tr:nth-child(odd) th {
       padding: 0 1em 0 0;
       display: flex;
       flex-direction: row;
-
-      .socials {
-        display: flex;
-      }
-        
-      .socials a {
-          width: 2.5rem;
-          height: 2.5rem;
+  
+        .socials {
           display: flex;
-          text-indent: -9999px;
-          background-repeat: no-repeat;
-      }      
+        }
+          
+        .socials a {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            text-indent: -9999px;
+            background-repeat: no-repeat;
+      }
     }
   }
 }
@@ -337,6 +350,7 @@ tbody tr:nth-child(odd) th {
   bottom: 5vh;
   left: 50vw;
   transform: rotate(90deg);
+  transition: all .1s ease;
   content: url("../img/arrow.svg");
   cursor: pointer;
 
@@ -355,13 +369,13 @@ tbody tr:nth-child(odd) th {
     -webkit-margin-start: 0;
     -webkit-margin-end: 0;
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
     margin: -7em 0 1em -20vw;
 
   .image-header {
     padding: 4.5em 0 0 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
   }
 
   figcaption {
@@ -371,7 +385,7 @@ tbody tr:nth-child(odd) th {
     font-size: 1.5rem;
     color: #fafafa;
     text-shadow: 0px 0px 5px #fafafa;
-  }
+  }  
 }
 
 .container {
