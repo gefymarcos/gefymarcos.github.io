@@ -355,7 +355,7 @@ tbody tr:nth-child(odd) th {
 
 .scroll-down {
   position: absolute;
-  bottom: 5vh;
+  bottom: 2vh;
   left: 50vw;
   transform: rotate(90deg);
   transition: all .1s ease;
@@ -410,7 +410,7 @@ tbody tr:nth-child(odd) th {
     display: flex;
     justify-content: center;
     border-bottom: 2px solid #eeeeee;
-    margin-bottom: 1em;
+    margin: 1em 0;
   }
 }
 
