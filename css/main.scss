@@ -332,6 +332,20 @@ tbody tr:nth-child(odd) th {
   }
 }
 
+.scroll-down {
+  position: absolute;
+  bottom: 5vh;
+  left: 50vw;
+  transform: rotate(90deg);
+  content: url("../img/arrow.svg");
+  cursor: pointer;
+
+  &:hover {
+    background-color: #B388FF;
+    border-radius: 50px;
+  }
+}
+
 .image-box {
     display: flex;
     position: relative;
