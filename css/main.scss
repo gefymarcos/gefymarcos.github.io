@@ -360,7 +360,6 @@ tbody tr:nth-child(odd) th {
   transform: rotate(90deg);
   transition: all .1s ease;
   content: url("../img/arrow.svg");
-  cursor: pointer;
 
   &:hover {
     background-color: #B388FF;
