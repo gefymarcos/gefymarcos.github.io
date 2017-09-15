@@ -374,7 +374,7 @@ tbody tr:nth-child(odd) th {
     height: 100vh;
     max-height: 100vh;
     margin: -7em 0 1em -20vw;
-    background-image: url(../img/home.jpg);
+    opacity: 0.8;
 
   .image-header {
     padding: 4.5em 0 0 0;
@@ -387,10 +387,12 @@ tbody tr:nth-child(odd) th {
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
     color: #fafafa;
-    text-shadow: 0px 0px 5px #fafafa;
-  }  
+    font-weight: 900;
+    background-color: #000;
+    opacity: 0.8;
+  }   
 }
 
 .container {

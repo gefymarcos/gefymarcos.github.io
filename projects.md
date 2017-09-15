@@ -2,13 +2,8 @@
 layout: page
 title: Projects
 permalink: /projects/
+description: Trabalhos realizados e projetos open-source.
 ---
-
-<figure class="image-box">
-  <img class="image-header" src="/img/projects.jpg" alt="Imagem de um programador trabalhando em seu computador.">
-  <figcaption>Trabalhos realizados e projetos open-source.</figcaption>
-</figure>
-
 <a class="scroll-down" href=""></a>
 
 <div class="content list">

@@ -2,12 +2,8 @@
 layout: page
 title: Articles
 permalink: /articles/
+description: Escrevo para aprender.
 ---
-
-<figure class="image-box">
-  <img class="image-header" src="/img/articles.jpg" alt="Imagem de um bloco de notas, uma caneta, um computador e um café.">
-  <figcaption>Escrevo para aprender.</figcaption>
-</figure>
 
 <a class="scroll-down" href=""></a>
 

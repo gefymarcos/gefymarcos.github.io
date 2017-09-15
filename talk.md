@@ -3,10 +3,6 @@ layout: page
 title: Talks
 permalink: /talks/
 ---
-<figure class="image-box">
-  <img class="image-header" src="/img/talks.jpg" alt="Imagem de um programador trabalhando em seu computador.">
-  <figcaption></figcaption>
-</figure>
 
 <a class="scroll-down" href=""></a>
 
