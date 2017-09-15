@@ -2,6 +2,7 @@
 layout: page
 title: Talks
 permalink: /talks/
+description: Apenas falando.
 ---
 
 <a class="scroll-down" href=""></a>

@@ -37,9 +37,11 @@
         </nav>
       </header>
       <div class="container">
+        {% if page.description %}
         <figure class="image-box" style="background-image: url(../img/{% if page.title %}{{ page.title }}{% else %}home{% endif %}.jpg);">
-          <figcaption>{{ page.description }}</figcaption>
-        </figure>
+            <figcaption>{{ page.description }}</figcaption>
+          </figure>
+        {% endif %}
         {{ content }}
       </div>
     </div>
