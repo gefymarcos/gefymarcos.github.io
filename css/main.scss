@@ -304,8 +304,7 @@ tbody tr:nth-child(odd) th {
     position: absolute;
 
     @media (max-width: 450px) {
-      padding: 0;
-      position: 25vw;
+      position: relative;
     }
 
     a {
