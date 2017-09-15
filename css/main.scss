@@ -300,10 +300,8 @@ tbody tr:nth-child(odd) th {
     display: flex;
     flex-direction: row;
 
-    padding: 4em 0 0 0;
-    position: absolute;
-
     @media (max-width: 450px) {
+      padding: 4em 0 0 0;
       position: relative;
     }
 
