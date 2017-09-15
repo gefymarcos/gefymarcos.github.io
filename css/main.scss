@@ -302,12 +302,10 @@ tbody tr:nth-child(odd) th {
 
     padding: 4em 0 0 0;
     position: absolute;
-    top: 0;
-    left: 25vw;
 
-    @media (min-width: 450px) {
-      padding: unset;
-      position: unset;
+    @media (max-width: 450px) {
+      padding: 0;
+      position: 25vw;
     }
 
     a {
