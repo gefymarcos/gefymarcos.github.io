@@ -1,0 +1,28 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+description: Trabalhos realizados e projetos open-source.
+---
+
+<a class="scroll-down" href=""></a>
+
+{% if site.posts.size == 0 %}
+    <h2>No posts found =(</h2>
+{% else %}
+
+{% for post in site.posts %}
+  {% if post.categories contains "project" %}
+    <div class="content list">
+      <div class="list-item">
+        <h2 class="list-post-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <div class="list-post-date">
+          <span>Code For Tuba - Tubarão, </span><time>07/2017</time>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+{% endif %}

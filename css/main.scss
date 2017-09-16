@@ -384,7 +384,7 @@ tbody tr:nth-child(odd) th {
     color: #fafafa;
     font-weight: 900;
     z-index: 3;
-  }   
+  }
 }
 
 .image-box::after {
@@ -415,6 +415,10 @@ tbody tr:nth-child(odd) th {
     border-bottom: 2px solid #eeeeee;
     margin: 1em 0;
   }
+}
+
+.link-talks {
+  text-decoration: underline;
 }
 
 .page {

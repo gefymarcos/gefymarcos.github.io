@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Hello World!"
-date:   2017-09-06 13:48:42 -0300
-categories: jekyll blog
+title: "Hello World!"
+date: 2017-09-06 13:48:42 -0300
+categories: blog
 ---
 Como bom programador, meu primeiro post não poderia deixar de ser um hello world, mas além de um simples olá escrevo para mostrar qual a minha intenção com esse blog.
 

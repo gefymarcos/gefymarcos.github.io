@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<article class="content post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-date">
+    <time>{{ page.date | date_to_string }}</time>
+    <span class="reading-time">- {{ page.local }},</span>
+    <a class="link-talks" href="{{page.eventUrl}}" target="_blank">{{ page.event }}</a>
+  </div> 
+  {{ content }}  
+  <a class="link-talks" href="{{page.link}}" target="_blank">Link para os slides aqui</a>
+</article>
