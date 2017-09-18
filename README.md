@@ -2,4 +2,4 @@
 
 Página criada para agrupar informações sobre mim.
 
-[para acessar clique aqui](https://gefymarcos.github.io" target="_blank)
+<a href="https://gefymarcos.github.io" target="_blank">para acessar o site clique aqui</a>
