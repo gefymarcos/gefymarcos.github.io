@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Articles
+title: articles
 permalink: /articles/
 description: Escrevo para aprender.
 ---
