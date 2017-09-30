@@ -1,3 +1,5 @@
-# Gefy Marcos Blog
+# Gefy Personal Page and Blog
 
-Blog/Personal page
+Página criada para agrupar informações sobre mim.
+
+<a href="https://gefymarcos.github.io" target="_blank">para acessar o site clique aqui</a>
