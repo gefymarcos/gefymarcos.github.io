@@ -15,9 +15,12 @@
           <a href="{{ site.baseurl }}/">{{ site.title }}</a>
         </h1>
         <nav class="masthead-nav">
-          {% for page in site.pages %}
-            {% if page.title contains "" %}
-              <a href="{{ page.url }}">{{ page.title }}</a>
+          {% for item in site.pages %}
+            {% if item.title contains "" %}
+              <a 
+                class="{% if item.url == page.url %}active{% endif %}"
+                href="{{ item.url }}"
+              >{{ item.title }}</a>
             {% endif %}
           {% endfor %}
         </nav>
