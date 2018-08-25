@@ -1,6 +1,8 @@
 ---
 ---
-
+:root {
+  --primary-color: rgb(190, 14, 17);
+}
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -258,7 +260,6 @@ tbody tr:nth-child(odd) th {
 
 .masthead {
   background-color: #000;
-  padding: 1.4em 0 1.4em 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -267,19 +268,25 @@ tbody tr:nth-child(odd) th {
   height: 6.5em;
 
   @media (min-width: 450px) {
-    height: 5.5em;
+    height: 3.5em;
+  }
+
+  .masthead-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &-title {
     a {
       font-weight: 300;
-      color: #B388FF;
+      color: #444444;
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 0 0 0 .3em;
       transition: all .2s ease;
-      font-family: 'Changa', "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
       @media (min-width: 450px) {
         padding: 0 0 0 1em;
@@ -294,10 +301,9 @@ tbody tr:nth-child(odd) th {
   }
 
   .masthead-nav {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+    position: fixed;
+    right: 43vw;
+    top: 16px;
 
     @media (max-width: 450px) {
       padding: 4em 0 0 0;
@@ -312,7 +318,7 @@ tbody tr:nth-child(odd) th {
 
       &:hover,
       &:focus {
-        color: #B388FF;
+        color: var(--primary-color);
         text-decoration: none;
       }
       
@@ -323,6 +329,11 @@ tbody tr:nth-child(odd) th {
   }
 
   .masthead-right-nav {
+    .right-menu-box {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
     .right-menu {
       padding: 0 .3em 0 0;
       display: flex;
@@ -344,20 +355,6 @@ tbody tr:nth-child(odd) th {
             background-repeat: no-repeat;
       }
     }
-  }
-}
-
-.scroll-down {
-  position: absolute;
-  bottom: 2vh;
-  left: 50vw;
-  transform: rotate(90deg);
-  transition: all .1s ease;
-  content: url("../img/arrow.svg");
-
-  &:hover {
-    background-color: #B388FF;
-    border-radius: 50px;
   }
 }
 
@@ -414,7 +411,6 @@ tbody tr:nth-child(odd) th {
     display: flex;
     justify-content: center;
     border-bottom: 2px solid #eeeeee;
-    margin: 1em 0;
   }
 }
 
@@ -449,7 +445,7 @@ tbody tr:nth-child(odd) th {
 
       &:hover,
       &:focus {
-        color: #B388FF;
+        color: var(--primary-color);
         text-decoration: none;
       }
     }

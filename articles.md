@@ -5,8 +5,6 @@ permalink: /articles/
 description: Escrevo para aprender.
 ---
 
-<a class="scroll-down" href=""></a>
-
 {% if site.posts.size == 0 %}
     <h2>No posts found =(</h2>
 {% else %}

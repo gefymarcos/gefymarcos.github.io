@@ -10,7 +10,7 @@
 
   <body>
     <div>
-      <header class="masthead">
+      <header class="masthead logo-name">
         <h1 class="masthead-title">
           <a href="{{ site.baseurl }}/">{{ site.title }}</a>
         </h1>
@@ -22,25 +22,24 @@
           {% endfor %}
         </nav>
         <nav class="masthead-right-nav">
-          <ul class="right-menu">
-            <li class="socials">
-              <a class="socials-github" href="http://www.github.com/gefymarcos" target="_blank">
-                <img src="/img/github.svg" alt="Logo do github" />
-              </a>
-            </li>
-            <li class="socials">
-              <a class="socials-twitter" href="http://www.twitter.com/gefymarcos" target="_blank">
-                <img src="/img/twitter.svg" alt="Logo do twitter" />
-              </a>
-            </li>
-          </ul>
+          <div class="right-menu-box">
+            <ul class="right-menu">
+              <li class="socials">
+                <a class="socials-github" href="http://www.github.com/gefymarcos" target="_blank">
+                  <img src="/img/github.svg" alt="Logo do github" />
+                </a>
+              </li>
+              <li class="socials">
+                <a class="socials-twitter" href="http://www.twitter.com/gefymarcos" target="_blank">
+                  <img src="/img/twitter.svg" alt="Logo do twitter" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
       </header>
       <div class="container">
         {% if page.description %}
-        <figure class="image-box" style="background-image: url(../img/{% if page.title %}{{ page.title }}{% else %}home{% endif %}.jpg);">
-          <figcaption>{{ page.description }}</figcaption>
-        </figure>
         {% endif %}
         {{ content }}
       </div>
