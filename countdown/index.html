@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Countdown</title>
+</head>
+<body>
+  <section class="container" onclick="contar(60)"> 
+    <section id="countdown" class="time"><section>
+    <audio style="position: fixed; left: -9999px" id="audio" controls>
+      <source src="beep.mp3" type="audio/mpeg">
+    </audio>
+    <audio style="position: fixed; left: -9999px" id="finish" controls>
+      <source src="finish-beep.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      var audio = document.getElementById('audio');
+      var finish = document.getElementById('finish');
+        
+      function contar(countdownTime) {
+        setTimeout(() => {
+
+          if (countdownTime > 0) {
+            countdownTime = countdownTime - 1;
+          }
+        
+          if (countdownTime === 0) {
+            document.getElementById('countdown').innerHTML = '1:0' + countdownTime;
+            document.getElementById('countdown').style = 'color: white'
+            finish.play();
+          } else if (countdownTime <= 5) {
+            document.getElementById('countdown').innerHTML = '0:0' + countdownTime;
+            document.getElementById('countdown').style = 'color: red'
+            audio.play();      
+          } else if (countdownTime < 10) {
+            document.getElementById('countdown').innerHTML = '0:0' + countdownTime;     
+          } else {
+            document.getElementById('countdown').innerHTML = '0:' + countdownTime;     
+          }
+              
+          if (countdownTime > 0) {
+            contar(countdownTime)
+          }
+        }, 1000)   
+      }
+    </script>
+
+  </section>
+</body>
+</html>
