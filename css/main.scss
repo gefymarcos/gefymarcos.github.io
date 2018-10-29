@@ -281,7 +281,7 @@ tbody tr:nth-child(odd) th {
   &-title {
     a {
       font-weight: 300;
-      color: #444444;
+      color: #FFFFFF;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -295,7 +295,7 @@ tbody tr:nth-child(odd) th {
     }
     a:hover,
     a:focus {
-      color: #fafafa;
+      color: var(--primary-color);
       text-decoration: none;
       
     }
