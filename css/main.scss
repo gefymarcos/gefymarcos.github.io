@@ -409,14 +409,6 @@ tbody tr:nth-child(odd) th {
   margin-left: 20vw;
   max-width: 60vw;
 
-  .container-title {
-    color: var(--primary-color);
-    font-weight: 300;
-    transition: all .2s ease;
-    display: flex;
-    justify-content: center;
-    border-bottom: 2px solid #eeeeee;
-  }
 }
 
 .link-talks {

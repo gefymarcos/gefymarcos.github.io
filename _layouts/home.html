@@ -8,8 +8,6 @@ layout: default
     <h2>No posts found =(</h2>
 {% else %}
 
-<h2 class="container-title">Recent Articles</h2>
-
 {% for post in site.posts %}
   {% if post.categories contains "blog" %}
   <div class="content list">
