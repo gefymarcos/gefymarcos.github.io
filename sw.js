@@ -1,7 +1,4 @@
-importScripts('/cache-polyfill.js');
-
 var CACHE_NAME = 'gefy-cache-v1';
-
 
 self.addEventListener('install', event => {
   this.skipWaiting();
@@ -14,7 +11,7 @@ self.addEventListener('install', event => {
           '/index.html',
           '/countdown/',
           '/countdown/style.css',
-          '/_sass/minima.scss',
+          '/css/main.css',
           '/countdown/beep.mp3',
           '/countdown/finish-beep.mp3'
         ]);
