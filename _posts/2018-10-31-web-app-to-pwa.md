@@ -7,28 +7,28 @@ categories: blog
 
 ## O que é PWA?
 
-PWA não é um novo framework javascript ou uma tecnologia nova, basicamente ele pode ser definido da seguinte forma:
+PWA não é um novo framework javascript ou uma tecnologia nova, basicamente ele pode ser definido como:
 
 > Progressive Web Apps são experiências que combinam o melhor da Web e o melhor dos aplicativos.
 
 Mas para que sua aplicação web tradicionais ganhe os "super-poderes" necessários para se tornar uma PWA ela precisa reunir os seguintes atributos:
 
 * **Progressivo**: Deve funcionar em qualquer navegador.
-* **Responsivo**: Precisa funcionar e estar preparado para Desktop, celular, tablet...
-* **Independente de conectividade**: utiliza ~_service workers_~ para funcionar _off-line_ ou com redes de baixa qualidade.
-* **Semelhante a aplicativos**: Possui interações e navegação no estilo de aplicativos, é compilado no modelo de _shell_ de aplicativo.
-* **Atual**: Sempre é atualizado, devido ao _service worker_ e por estar online.
-* **Seguro**: Precisa utilizar HTTPS.
+* **Responsivo**: Desktop, celular, tablet...
+* **Independente de conectividade**: ~_service workers_~ para funcionar _off-line_ ou com redes de baixa qualidade.
+* **Semelhante a aplicativos**: Não tem barra de url e possui interações e navegação no estilo de aplicativos, pois é compilado no modelo de _shell_ de aplicativo.
+* **Atual**: Sempre atualizado devido ao _service worker_.
+* **Seguro**: Fornecido via HTTPS.
 * **Descobrível**: Pode ser identificado como "aplicativo" graças ao manifesto W3C e ao escopo de registro do _service worker_, que permitem que os mecanismos de pesquisa os encontrem.
 * **Reenvolvente**: Facilita o reengajamento com recursos como _push notification_.
-* **Instalável**: Permite que os usuários "guardem" os aplicativos mais úteis em suas telas iniciais sem precisar acessar uma loja de aplicativos.
+* **Instalável**: Permite que os usuários "guardem" os aplicativos mais úteis em suas iniciais sem precisar acessar uma loja de aplicativos.
 * **Linkável**: Compartilhe facilmente por URL, não requer instalação complexa.
 
 Tais é louco, tudo isso? já cansei antes de começar. Mas fique tranquilo, vou te mostrar como ele parece bem mais complexo do que realmente é.
 
 ## Checklist
 
-Vamos começar usando uma ferramenta que o google disponíbilizou não apenas para PWA, mas para verificar qualquer tipo de página web, você pode baixar ou acessar em [lighthouse](https://developers.google.com/web/tools/lighthouse/), e também o excelente [checklist](https://developers.google.com/web/progressive-web-apps/checklist) para te guiar nesse caminho.
+A google fornece uma [checklist](https://developers.google.com/web/progressive-web-apps/checklist) para te guiar nesse caminho e também o excelente [lighthouse](https://developers.google.com/web/tools/lighthouse/), que serve para, entre outras coisas, auditar nossa app e gerar métricas mostrando quais principios já cobrimos.
 
 ### 1 - HTTPS, sempre HTTPS
 
@@ -41,17 +41,17 @@ HTTPS é uma implementação do protrocolo HTTP que utiliza o protocolo SSL/TLS.
 
 #### Como fazer?
 
-* Você pode utilizar alguns serviços como [cloudflare](https://www.cloudflare.com) ou o [let`s encrypt](https://letsencrypt.org/).
+* Procure a respeito no seu provedor, no github pages por exemplo, já é habilitado por padrão.
 
 ### 2 - Site responsivo e rápido
 
-Um site responsividade já é fundamental há algum tempo e também é um dos pricipios base para as PWAs, performance também deveria ser uma preocupação diária.
+Responsividade já é fundamental há algum tempo e também é um dos pricipios base para as PWAs.
 
 #### O que fazer?
 
 * Sempre definir corretamente a viewport no browser.
-* Utilizar ```@MediaQuery``` para realizar as adaptações necessárias as diferentes resoluções, não se prenda aos breakpoints de frameworks, sempre se adapte para a suas necessidades.
-* Utilize o lighthouse e confira onde pode melhorar performance.
+* Utilizar ```@MediaQuery``` para realizar as adaptações necessárias as diferentes resoluções.
+* Sempre se preocupar com performance.
 
 #### Como fazer?
 
@@ -135,7 +135,7 @@ Um site responsividade já é fundamental há algum tempo e também é um dos pr
 
 ### 5 - Service Worker
 
-Agora o negócio fica sério! Service worker é um script executado em segundo plano pelo navegador, ele é executado separado da página web, dessa forma ele possibilita a utilização de recursos que não precisam de uma página ou mesmo interação do usuário.
+Agora o negócio ficou sério! Service worker é um script executado em segundo plano pelo navegador, ele é executado separado da página web, dessa forma ele possibilita a utilização de recursos que náo precisam de uma página ou mesmo interação do usuário.
 
 Através de service workers já é possível utilizar algumas funcionalidades que só eram possíveis em aplicativos, como _push notifications_ e sincronização em segundo plano.
 

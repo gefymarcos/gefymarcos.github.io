@@ -9,6 +9,7 @@ self.addEventListener('install', event => {
         return cache.addAll([
           '/',
           '/index.html',
+          '/img/',
           '/countdown/',
           '/countdown/style.css',
           '/css/main.css',
