@@ -56,6 +56,26 @@
           .then(reg => console.info('registered sw', reg))
           .catch(err => console.error('error registering sw', err));
       }
+
+      // var font = new FontFace("Changa", "url(/fonts.googleapis.com/css?family=Changa|Source+Sans+Pro:300,300i,600)", {
+      //   style: 'normal', unicodeRange: 'U+000-5FF', weight: '300'
+      // });
+
+      // font.load(); // don't wait for the render tree, initiate an immediate fetch!
+
+      // font.ready().then(function() {
+      //   // apply the font (which may re-render text and cause a page reflow)
+      //   // after the font has finished downloading
+      //   document.fonts.add(font);
+      //   document.body.style.fontFamily = "Awesome Font, serif";
+
+      //   // OR... by default the content is hidden, 
+      //   // and it's rendered after the font is available
+      //   var content = document.getElementById("content");
+      //   content.style.visibility = "visible";
+
+      //   // OR... apply your own render strategy here... 
+      // });
     </script>
   </body>
 
