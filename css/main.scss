@@ -276,6 +276,7 @@ tbody tr:nth-child(odd) th {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2em;
   }
 
   &-title {
@@ -353,11 +354,12 @@ tbody tr:nth-child(odd) th {
         }
           
         .socials a {
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            text-indent: -9999px;
-            background-repeat: no-repeat;
+          width: 1.5rem;
+          height: 2.5rem;
+          margin-left: 0.5em;
+          display: flex;
+          text-indent: -9999px;
+          background-repeat: no-repeat;
       }
     }
   }
