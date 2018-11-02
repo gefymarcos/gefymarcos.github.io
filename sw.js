@@ -1,16 +1,4 @@
 var filesToAdd = ['/',
-  '/index.html',
-  '/articles',
-  '/404',
-  '/talks',
-  '/react-native-por-onde-comecar',
-  '/web-app-to-pwa-test',
-  '/img/',
-  '/countdown/',
-  '/countdown/style.css',
-  '/css/main.css',
-  '/countdown/beep.mp3',
-  '/countdown/finish-beep.mp3',
 ]
 
 //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
