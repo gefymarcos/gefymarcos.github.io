@@ -5,14 +5,14 @@
   "background_color": "#000000",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/index.html",
+  "start_url": "https://gefy.com.br/index.html",
   "lang": "pt-BR",
   "orientation": "portrait",
   "icons": [
-    {
-      "src": "/assets/img/icons/logo-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+      {
+          "src": "/images/assets/img/icons/logo-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
   ]
 }

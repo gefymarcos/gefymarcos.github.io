@@ -24,7 +24,7 @@ Mas para que sua aplicação web tradicionais ganhe os "super-poderes" necessár
 * **Instalável**: Permite que os usuários "guardem" os aplicativos mais úteis em suas iniciais sem precisar acessar uma loja de aplicativos.
 * **Linkável**: Compartilhe facilmente por URL, não requer instalação complexa.
 
-Tais é louco, tudo isso? já cansei antes de começar. Mas fique tranquilo, vou te mostrar como ele parece bem mais complexo do que realmente é.
+_Tais é louco, tudo isso? Já cansei antes de começar._ Mas fique tranquilo, vou te mostrar como ele parece bem mais complexo do que realmente é.
 
 ## Checklist
 
@@ -41,7 +41,7 @@ HTTPS é uma implementação do protrocolo HTTP que utiliza o protocolo SSL/TLS.
 
 #### Como fazer?
 
-* Procure a respeito no seu provedor, no github pages por exemplo, já é habilitado por padrão.
+* Eu utilizo Github Pages, nele já é habilitado por padrão, mas você usar também alguns serviços, uma boa opção é o [Let's Encrypt - Free SSL/TLS Certificates](http://letsencrypt.org/)
 
 ### 2 - Site responsivo e rápido
 
@@ -61,11 +61,11 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-* Utilizar ```@MediaQuery``` e criar os _breakpoints_ de acordo com a **sua** necessidade.
+* Utilizar ```@MediaQuery``` e criar os _breakpoints_ de acordo com a **sua** necessidade, não se prenda aos breakpoints pré-definidos por frameworks.
 
-* ```css
-  @media only screen and (min-width: 600px)
-  ```
+```css
+@media only screen and (min-width: 600px)
+```
 
 * Execute o lighthouse e verifique onde a _performance_ da sua aplicação pode melhorar.
 
@@ -81,9 +81,9 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
 
 * Basta adicionar a seguinte meta tag:
 
-  ```html
-  <meta name="theme-color" content="cor em hexadecimal">
-  ```
+```html
+  <meta name="theme-color" content="#FAFAFA">
+```
 
 ### 4 - Manifesto
 
@@ -91,9 +91,10 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
 
 #### O que fazer?
 
-* Podemos utilizar um gerador de manifesto como esses:
+* Podemos utilizar um gerador de manifesto como esses ou criar o nosso próprio, algumas sugestões de gerenciadores:
   * [App Manifesto](https://app-manifest.firebaseapp.com/)
   * [PWA Builder](https://preview.pwabuilder.com/)
+
 
 * Nesse arquivo nós vamos definir o ícone que vai ser usado após a instalação e também uma _splash screen_ após a abertura do app.
 
@@ -103,18 +104,18 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
 
   ```json
   {
-    "name": "My Progressive Web App",
-    "short_name": "My PWA",
-    "theme_color": "#FAFAFA",
-    "background_color": "#CCCCCC",
+    "name": "Gefy Marcos",
+    "short_name": "Gefy",
+    "theme_color": "#333333",
+    "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/?utm_source=homescreen",
+    "start_url": "/index.html",
     "lang": "pt-BR",
-    "orientation": "any",
+    "orientation": "portrait",
     "icons": [
       {
-        "src": "/assets/img/icons/favicon-512x512.png",
+        "src": "/assets/img/icons/logo-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
@@ -135,11 +136,11 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
 
 ### 5 - Service Worker
 
-Agora o negócio ficou sério! Service worker é um script executado em segundo plano pelo navegador, ele é executado separado da página web, dessa forma ele possibilita a utilização de recursos que náo precisam de uma página ou mesmo interação do usuário.
+Agora é que fica interessante! Service worker é um script executado em segundo plano pelo navegador, ele é executado separado da página web, dessa forma ele possibilita a utilização de recursos que não precisam de uma página ou mesmo interação do usuário.
 
 Através de service workers já é possível utilizar algumas funcionalidades que só eram possíveis em aplicativos, como _push notifications_ e sincronização em segundo plano.
 
-Vamos nos ater a uma funcionalidade do service worker, a capacidade de interceptar e tratar solicitações de rede, respondendo com um cache caso tivermos.
+Nesse tutorial vamos nos ater a uma funcionalidade do service worker, a capacidade de interceptar e tratar solicitações de rede, respondendo com um cache caso exista.
 
 ##### Importante
 * O service worker funciona numa thread separada do browser, ele **NÃO** tem acesso ao DOM.
@@ -176,24 +177,25 @@ Para que nosso site funcione off-line só precisamos dos 3 primeiros, então vam
 O evento install é ativado só uma vez, ao registrar a versão do ```sw.js```. se o ```sw.js``` for alterado ele é chamado novamente, esse evento é o local onde vamos armazenar em cache os ativos da página.
 
 ```js
-importScripts('/cache-polyfill.js');
+var CACHE_NAME = 'gefy-cache-v1';
 
 self.addEventListener('install', event => {
   this.skipWaiting();
 
   event.waitUntil(
-   caches.open(staticCacheName)
-    .then(cache => {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/index.html?homescreen=1',
-        '/?homescreen=1',
-        '/styles/main.css',
-        '/scripts/main.min.js',
-        '/sounds/music.mp3'
-     ]);
-   })
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/img/',
+          '/countdown/',
+          '/countdown/style.css',
+          '/css/main.css',
+          '/countdown/beep.mp3',
+          '/countdown/finish-beep.mp3'
+        ]);
+      })
   );
 });
 
@@ -201,27 +203,28 @@ self.addEventListener('install', event => {
 
 ##### Importante
 
-A função ```addAll``` é tudo ou nada, caso um dos arquivos não for encontrado toda a operação falha.
+A função ```addAll``` é tudo ou nada, caso um dos arquivos não seja encontrado toda a operação falha.
 
 ##### Activate
 
 O evento ```activate``` também é ativado apenas uma vez, quando uma nova versão do ```sw.js``` for instalada e não possuir nenhuma versão anterior rodando em outra aba. Então você irá utilizado basicamente para deletar coisas antigas de versões anteriores.
 
 ```js
-// Clear cache on activate
 this.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(cacheName => (cacheName.startsWith('my-pwa-')))
-          .filter(cacheName => (cacheName !== staticCacheName))
+          .filter(cacheName => (cacheName.startsWith('gefy-')))
+          .filter(cacheName => (cacheName !== CACHE_NAME))
           .map(cacheName => caches.delete(cacheName))
       );
     })
   );
+});
 ```
-Nesse código verificamos se o nosso ```cacheName``` inicia com o nosso prefixo ```my-pwa-``` ou ainda se nosso ```cacheName``` é diferente do nosso atual cache, caso seja dierente nós deletamos os arquivos antigos, isso é **fundamental** para não mostrar informações desatualizadas para o usuário.
+
+Nesse código verificamos se o nosso ```cacheName``` inicia com o nosso prefixo ```gefy-``` ou ainda se nosso ```cacheName``` é diferente do nosso atual cache, caso seja diferente nós deletamos os arquivos antigos, isso é **fundamental** para não mostrar informações desatualizadas para o usuário.
 
 ##### Fetch
 
