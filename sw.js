@@ -1,3 +1,18 @@
+var filesToAdd = ['/',
+  '/index.html',
+  '/articles',
+  '/404',
+  '/talks',
+  '/react-native-por-onde-comecar',
+  '/web-app-to-pwa-test',
+  '/img/',
+  '/countdown/',
+  '/countdown/style.css',
+  '/css/main.css',
+  '/countdown/beep.mp3',
+  '/countdown/finish-beep.mp3',
+]
+
 //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
 
 //Install stage sets up the offline page in the cache and opens a new cache
@@ -9,10 +24,7 @@ var preLoad = function(){
   console.log('[PWA Builder] Install Event processing');
   return caches.open('pwabuilder-offline').then(function(cache) {
     console.log('[PWA Builder] Cached index and offline page during Install');
-    return cache.addAll(['/',
-    '/index.html',
-    '/img/',
-    '/css/main.css']);
+    return cache.addAll(filesToAdd);
   });
 }
 
