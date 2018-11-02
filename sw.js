@@ -1,7 +1,5 @@
 var filesToAdd = ['/',
   '/index.html',
-  '/articles.html',
-  '/talks.html',
   '/img/',
   '/countdown/',
   '/countdown/style.css',
