@@ -12,11 +12,7 @@ var preLoad = function(){
     return cache.addAll(['/',
     '/index.html',
     '/img/',
-    '/countdown/',
-    '/countdown/style.css',
-    '/css/main.css',
-    '/countdown/beep.mp3',
-    '/countdown/finish-beep.mp3']);
+    '/css/main.css']);
   });
 }
 
