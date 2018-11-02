@@ -41,7 +41,7 @@ HTTPS é uma implementação do protrocolo HTTP que utiliza o protocolo SSL/TLS.
 
 #### Como fazer?
 
-* Eu utilizo Github Pages, nele já é habilitado por padrão, mas você usar também alguns serviços, uma boa opção é o [Let's Encrypt - Free SSL/TLS Certificates](http://letsencrypt.org/)
+* Eu utilizo Github Pages, nele já é habilitado por padrão, mas você usar também alguns serviços, uma boa opção é o [Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/)
 
 ### 2 - Site responsivo e rápido
 

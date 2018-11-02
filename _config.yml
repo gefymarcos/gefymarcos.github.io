@@ -17,7 +17,7 @@ title: Gefy
 email: gefymarcos@gmail.com
 description: "Esse é um blog criado com o intuito de compartilhar conteúdos que estou aprendendo."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://gefy.com.br" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://gefy.com.br" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: gefymarcos
 github_username:  gefymarcos
 
