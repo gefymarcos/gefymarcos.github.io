@@ -1,6 +1,5 @@
 var filesToAdd = ['/',
   '/index.html',
-  '/404/',
   '/articles/',
   '/talks/',
   '/react-native-por-onde-comecar',
