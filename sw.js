@@ -9,7 +9,8 @@ var filesToAdd = ['/',
   '/countdown/style.css',
   '/css/main.css',
   '/countdown/beep.mp3',
-  '/countdown/finish-beep.mp3'
+  '/countdown/finish-beep.mp3',
+  '/404.html'
 ]
 
 //This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
@@ -60,7 +61,7 @@ var returnFromCache = function(request){
   return caches.open('pwabuilder-offline').then(function (cache) {
     return cache.match(request).then(function (matching) {
      if(!matching || matching.status == 404) {
-       return cache.match('offline.html')
+       return cache.match('/404.html')
      } else {
        return matching
      }
