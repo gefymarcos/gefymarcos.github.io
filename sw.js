@@ -1,4 +1,12 @@
 var filesToAdd = ['/',
+'/index.html',
+'/talks',
+'/articles',
+'/web-app-to-pwa-test',
+'/css/main.css',
+'/img/twitter.svg',
+'/img/github.svg',
+'/img/arrow-down.svg',
 ]
 
 self.addEventListener('install', function(event) {
