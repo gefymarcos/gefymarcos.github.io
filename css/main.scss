@@ -471,10 +471,10 @@ tbody tr:nth-child(odd) th {
     right: 43vw;
     top: 16px;
 
-    @media (max-width: 450px) {
+    @media (max-width: 650px) {
       padding: 4em 0 0 0;
       position: relative;
-      right: 2em;
+      right: 4em;
     }
 
     a {
@@ -581,9 +581,12 @@ tbody tr:nth-child(odd) th {
   flex-direction: column;
   margin-left: 20vw;
   max-width: 60vw;
-
 }
-
+@media (max-width: 650px) {
+  .container {
+    padding: 8em 0 0 0;
+  }
+}
 .link-talks {
   text-decoration: underline;
 }
