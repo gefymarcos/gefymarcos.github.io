@@ -627,7 +627,11 @@ tbody tr:nth-child(odd) th {
     text-transform: uppercase;
   }
 }
-
+@media (max-width: 650px) {
+  .list {
+    height: 70vh;
+  }
+}
 .projects-list {
   a {
     color: #333;
