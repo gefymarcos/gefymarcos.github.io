@@ -266,7 +266,6 @@ tbody tr:nth-child(odd) th {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-attachment: scroll;
 }
 .hero-icons {
   width: 36px;
@@ -462,9 +461,7 @@ tbody tr:nth-child(odd) th {
     }
     a:hover,
     a:focus {
-      // color: var(--primary-color);
-      // text-decoration: none;
-      
+      border-bottom: none;
     }
   }
 
@@ -500,7 +497,6 @@ tbody tr:nth-child(odd) th {
   .active {
     color: var(--primary-color)!important;
     text-decoration: none;
-    border-bottom: #333333 5px solid;
   }
   .masthead-right-nav {
     .right-menu-box {
