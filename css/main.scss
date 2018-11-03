@@ -579,10 +579,13 @@ tbody tr:nth-child(odd) th {
   flex-direction: column;
   margin-left: 20vw;
   max-width: 60vw;
+  text-align: justify;
 }
 @media (max-width: 650px) {
   .container {
     padding: 8em 0 0 0;
+    margin-left: 10vw;
+    max-width: 80vw;
   }
 }
 .link-talks {
