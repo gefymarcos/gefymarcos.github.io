@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="Gefy Marcos` Personal Page" content="I write about software development.">
+    <title>{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %}</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Changa|Source+Sans+Pro:300,300i,600">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script>
+      if (navigator.serviceWorker.controller) {
+        console.log('[PWA Builder] active service worker found, no need to register')
+      } else {
+        navigator.serviceWorker.register('sw.js', {
+          scope: './'
+        }).then(function(reg) {
+          console.log('Service worker has been registered for scope:'+ reg.scope);
+        });
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div>
+      <header class="masthead logo-name">
+        <h1 class="masthead-title">
+          <a href="{{ site.baseurl }}/"><strong>Gefy</strong>Marcos</a>
+        </h1>
+        <nav class="masthead-nav">
+          {% for item in site.pages %}
+            {% if item.title contains "" %}
+              <a 
+                class="{% if item.url == page.url %}active{% endif %}"
+                href="{{ item.url }}"
+              >{{ item.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+        <nav class="masthead-right-nav">
+          <div class="right-menu-box">
+            <ul class="right-menu">
+              <li class="socials">
+                <a class="socials-github" rel="noopener" href="https://www.github.com/gefymarcos" target="_blank">
+                  <img src="/img/github.svg" alt="Logo do github" />
+                </a>
+              </li>
+              <li class="socials">
+                <a class="socials-twitter" rel="noopener" href="https://www.twitter.com/gefymarcos" target="_blank">
+                  <img src="/img/twitter.svg" alt="Logo do twitter" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="hero">
+        <h1 class="hero-title"><strong class="hero-strong">Gefy</strong>Marcos</h1>
+
+        <img src="./../img/svg/3d-1.svg" alt="" class="hero-icons hero-icon-1">
+        <img src="./../img/svg/abstract-1.svg" alt="" class="hero-icons hero-icon-2">
+        <img src="./../img/svg/abstract.svg" alt="" class="hero-icons hero-icon-3">
+        <img src="./../img/svg/geometric.svg" alt="" class="hero-icons hero-icon-4">
+        <img src="./../img/svg/headphones.svg" alt="" class="hero-icons hero-icon-5">
+        <img src="./../img/svg/play-button.svg" alt="" class="hero-icons hero-icon-6">
+        <img src="./../img/svg/poker.svg" alt="" class="hero-icons hero-icon-7">
+        <img src="./../img/svg/square.svg" alt="" class="hero-icons hero-icon-8">
+        <img src="./../img/svg/start.svg" alt="" class="hero-icons hero-icon-9">
+        <img src="./../img/svg/triangle-1.svg" alt="" class="hero-icons hero-icon-10">
+        <img src="./../img/svg/triangular.svg" alt="" class="hero-icons hero-icon-11">
+        <a class="hero-down-button" onclick="scrollToContent()"></a>
+      </div>
+      <script>
+        function scrollToContent() {
+          document.querySelector('#content').scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      </script>
+      <div class="container">
+        {% if page.description %}
+        {% endif %}
+        {{ content }}
+      </div>
+    </div>
+  </body>
+
