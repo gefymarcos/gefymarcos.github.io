@@ -181,7 +181,7 @@ var filesToAdd = ['/']
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('offline')
+    caches.open('gefy-pwa')
       .then(function(cache) {
         return cache.addAll(filesToAdd);
       })
@@ -255,8 +255,8 @@ var checkResponse = function(request) {
 
 // se o fetch foi rejeitado, vamos ao cache
 var returnFromCache = function(request){
-  // abra o cacha 'offline'
-  return caches.open('offline')
+  // abra o cacha 'gefy-pwa'
+  return caches.open('gefy-pwa')
     // a abertura retorna uma promise com o cache
     .then(function (cache) {
       // verifica se a request existe no nosso cache
@@ -277,8 +277,8 @@ var returnFromCache = function(request){
 
 // tudo feito, vamos atualizar o cache
 var addToCache = function(request) {
-  // abra o cacha 'offline'
-  return caches.open('offline')
+  // abra o cacha 'gefy-pwa'
+  return caches.open('gefy-pwa')
     // a abertura retorna uma promise com o cache
     .then(function (cache) {
       // já sabemos que ele encontrou, entrou faz o fetch
