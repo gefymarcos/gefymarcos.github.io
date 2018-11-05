@@ -110,14 +110,14 @@ Responsividade já é fundamental há algum tempo e também é um dos pricipios 
     "background_color": "#000000",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/index.html",
+    "start_url": "https://gefy.com.br/index.html",
     "lang": "pt-BR",
     "orientation": "portrait",
     "icons": [
       {
-        "src": "/assets/img/icons/logo-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
+          "src": "/img/logo-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
       }
     ]
   }
@@ -177,24 +177,13 @@ Para que nosso site funcione off-line só precisamos dos 3 primeiros, então vam
 O evento install é ativado só uma vez, ao registrar a versão do ```sw.js```. se o ```sw.js``` for alterado ele é chamado novamente, esse evento é o local onde vamos armazenar em cache os ativos da página.
 
 ```js
-var CACHE_NAME = 'gefy-cache-v1';
+var filesToAdd = ['/']
 
-self.addEventListener('install', event => {
-  this.skipWaiting();
-
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/img/',
-          '/countdown/',
-          '/countdown/style.css',
-          '/css/main.css',
-          '/countdown/beep.mp3',
-          '/countdown/finish-beep.mp3'
-        ]);
+    caches.open('offline')
+      .then(function(cache) {
+        return cache.addAll(filesToAdd);
       })
   );
 });
@@ -228,27 +217,92 @@ Nesse código verificamos se o nosso ```cacheName``` inicia com o nosso prefixo 
 
 ##### Fetch
 
-Um recurso poderoso dos service workers é a capacidade de interceptar as solicitações que a página faz e decidir o que fazer com tal solicitação, esse monitoramento é feito com o evento ```fetch```, ele é ativado toda vez que uma página é requisitada.
+Um recurso poderoso dos service workers é a capacidade de interceptar as solicitações que a página faz e decidir o que fazer com tal solicitação, esse monitoramento é feito com o evento ```fetch```, ele é ativado toda vez que uma página é requisitada e funciona como um _proxy_, ele é o responsável por verificar se o arquivo solicitado existe no cache e também por fazer os redirecionamentos.
 
 ```js
-// Serve from Cache
-this.addEventListener("fetch", event => {
+// adicinamos o listener do evento fetch
+self.addEventListener('fetch', function(event) {
+  // sempre que esse evento for disparado, responda da seguinte forma:
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-      .catch(() => {
-        return caches.match('/offline/index.html');
-      })
-  )
+    // verique se a nossa request existe e está online
+    checkResponse(event.request)
+      .catch(function() {
+        // se não for encontrada procure no nosso cache se ela existe
+        return returnFromCache(event.request)}
+      ));
+  // aguarde a resposta, quando ela existir adicione ao nosso cache
+  event.waitUntil(addToCache(event.request));
 });
+
+// verifique se o response existe
+var checkResponse = function(request) {
+  return new Promise(function(fulfill, reject) {
+    // tente resolver a promise fazendo o fetch (online)
+    fetch(request)
+      .then(function(response) {
+        // verifica se o status retornado é diferente de 404
+        if(response.status !== 404) {
+          // se não foi 404, então achou algo!
+          fulfill(response)
+        } else {
+          // não encontrou nada
+          reject()
+        }
+      // fetch foi rejeitado, possívelmente está offline
+      }, reject)
+  });
+};
+
+// se o fetch foi rejeitado, vamos ao cache
+var returnFromCache = function(request){
+  // abra o cacha 'offline'
+  return caches.open('offline')
+    // a abertura retorna uma promise com o cache
+    .then(function (cache) {
+      // verifica se a request existe no nosso cache
+      return cache.match(request)
+        .then(function (matching) {
+          // não encontrou nada
+          if(!matching || matching.status == 404) {
+            // redireciona pra página de offline
+            // pode ser qualquer página que não precise de conexão.
+            return cache.match('/404.html')
+          } else {
+            // retorna a request com o resultado do cache.
+            return matching
+          }
+        });
+    });
+};
+
+// tudo feito, vamos atualizar o cache
+var addToCache = function(request) {
+  // abra o cacha 'offline'
+  return caches.open('offline')
+    // a abertura retorna uma promise com o cache
+    .then(function (cache) {
+      // já sabemos que ele encontrou, entrou faz o fetch
+      return fetch(request)
+        .then(function (response) {
+          // pega o retorno dessa request e adiciona no nosso cache
+          return cache.put(request, response);
+        });
+    });
+};
 ```
-O ```fetch``` é o responsável por verificar se o arquivo solicitado existe no cache, se existir ele é retornado. Caso a página solicitada não exista você pode redirecionar para uma página off-line.
 
 ## Conclusão
 
-É isso! agora temos nosso site funcionando off-line e também salvando algumas páginas em cache, além disso temos um PWA rodando!
+Nesse artigo vimos:
+
+- O que é e como uma funciona uma PWA, além de seus princípios básicos.
+- Maneiras de testar sua PWA.
+- Como ativar HTTPS no seu servidor.
+- Dicas para um site responsivo.
+- Adicionar cor de tema.
+- Criar um manifesto.
+- Criar um service worker.
+- Cachear e redirecionar requests mesmo off-line.
 
 ## Mas então as PWAs vão matar os Aplicativos?
 
