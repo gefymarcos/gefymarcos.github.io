@@ -2,10 +2,26 @@ var filesToAdd = ['/']
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open('offline')
+    caches.open('gefy-pwa')
       .then(function(cache) {
         return cache.addAll(filesToAdd);
       })
+  );
+});
+
+self.addEventListener('activate', function(event) {
+  var cacheWhitelist = ['gefy-pwa'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
 
@@ -32,7 +48,7 @@ var checkResponse = function(request) {
 };
 
 var returnFromCache = function(request){
-  return caches.open('offline')
+  return caches.open('gefy-pwa')
     .then(function (cache) {
       return cache.match(request)
         .then(function (matching) {
@@ -46,7 +62,7 @@ var returnFromCache = function(request){
 };
 
 var addToCache = function(request) {
-  return caches.open('offline')
+  return caches.open('gefy-pwa')
     .then(function (cache) {
       return fetch(request)
         .then(function (response) {
