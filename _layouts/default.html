@@ -9,7 +9,9 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Changa|Source+Sans+Pro:300,300i,600">
     <link rel="stylesheet" href="/css/main.css">
-    
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
     <script>
       if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js')
