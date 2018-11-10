@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-98874027-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-98874027-2');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
@@ -9,20 +18,6 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Changa|Source+Sans+Pro:300,300i,600">
     <link rel="stylesheet" href="/css/main.css">
-    {% if jekyll.environment == 'production' %}
-    {% include analytics.html %}
-    {% endif %}
-    <script>
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(err) {
-              console.log('ServiceWorker registration failed: ', err);
-            });
-      }
-    </script>
-
   </head>
 
   <body>
