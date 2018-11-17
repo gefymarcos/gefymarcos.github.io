@@ -17,7 +17,7 @@ description: Apenas falando.
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h2>
         <div class="list-post-date">
-          <span>Code For Tuba - Tubarão, </span><time>07/2017</time>
+          <span>{{ post.event }} | {{ post.local }}, </span><time>{{ post.date | date_to_string}}</time>
         </div>
       </div>
     </div>
