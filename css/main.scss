@@ -600,6 +600,7 @@ tbody tr:nth-child(odd) th {
 }
 
 .post {
+  height: calc(100vh - 7.5em);
   &-title {
     margin-bottom: .25rem;
   }
@@ -611,7 +612,6 @@ tbody tr:nth-child(odd) th {
 }
 
 .list {
-  height: calc(100vh - 7.5em);
   &-post-title {
     margin-bottom: .25rem;
 
